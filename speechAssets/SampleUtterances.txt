@@ -1,0 +1,46 @@
+TuneToChannelNumberIntent tune to channel {ChannelNumber}
+TuneToChannelNumberIntent {ChannelNumber}
+
+TuneToChannelNameIntent {ChannelName}
+TuneToChannelNameIntent tune to channel {ChannelName}
+TuneToChannelNameIntent switch to {ChannelName}
+TuneToChannelNameIntent tune to {ChannelName}
+TuneToChannelNameIntent turn on {ChannelName}
+TuneToChannelNameIntent tune to {ChannelName} channel
+TuneToChannelNameIntent turn on {ChannelName} channel
+
+GetCurrentProgramIntent what show is this
+GetCurrentProgramIntent what is this
+
+FindShowIntent is {ShowName} on
+FindShowIntent is {ShowName} playing
+
+PlayIntent play
+
+PauseIntent pause
+
+ReplayIntent replay
+ReplayIntent replay that
+
+RecordIntent record
+RecordIntent record this
+
+PowerOnIntent turn on
+PowerOnIntent switch on
+PowerOnIntent power on
+PowerOnIntent on
+
+PowerOffIntent turn off
+PowerOffIntent switch off
+PowerOffIntent power off
+PowerOffIntent off
+
+YesIntent yes
+YesIntent ok
+YesIntent alright
+
+NoIntent no
+NoIntent cancel
+
+MoreInfoIntent more info
+MoreInfoIntent tell me more

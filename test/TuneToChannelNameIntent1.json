@@ -1,0 +1,26 @@
+{
+  "session": {
+    "sessionId": "SessionId.d6727e2a-3874-45b2-8870-38781451d3b6",
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.a89eaa34-d1f6-4244-a8ec-3c542e26f80d"
+    },
+    "user": {
+      "userId": null
+    },
+    "new": true
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.1fcce084-e1b0-4f69-8a48-339a8ecb4569",
+    "timestamp": "2016-01-11T22:02:19Z",
+    "intent": {
+      "name": "TuneToChannelNumberIntent",
+      "slots": {
+        "ChannelNumber": {
+          "name": "ChannelNumber",
+          "value": "501"
+        }
+      }
+    }
+  }
+}

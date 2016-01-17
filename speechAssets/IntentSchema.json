@@ -1,0 +1,64 @@
+{
+  "intents": [
+    {
+      "intent": "TuneToChannelNumberIntent",
+      "slots": [
+        {
+          "name": "ChannelNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "TuneToChannelNameIntent",
+      "slots": [
+        {
+          "name": "ChannelName",
+          "type": "LIST_OF_CHANNELS"
+        }
+      ]
+    },
+    {
+      "intent": "FindShowIntent",
+      "slots": [
+        {
+          "name": "ShowName",
+          "type": "LIST_OF_SHOWS"
+        }
+      ]
+    },
+    {
+      "intent": "PowerOnIntent"
+    },
+    {
+      "intent": "PowerOffIntent"
+    },
+    {
+      "intent": "GetCurrentProgramIntent"
+    },
+    {
+      "intent": "PlayIntent"
+    },
+    {
+      "intent": "PauseIntent"
+    },
+    {
+      "intent": "RecordIntent"
+    },
+    {
+      "intent": "ReplayIntent"
+    },
+    {
+      "intent": "YesIntent"
+    },
+    {
+      "intent": "NoIntent"
+    },
+    {
+      "intent": "MoreInfoIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}
