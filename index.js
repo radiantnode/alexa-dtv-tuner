@@ -317,7 +317,7 @@ function tuneToChannelNumber (response, channelNumber)
 // });
 
 // AlexaDTVTunerSkill.prototype.intentHandlers.FindShowIntent({
-//   slots: { ShowName: { value: "con air" } }
+//   slots: { ShowName: { value: "how its made" } }
 // }, { attributes: {} }, {
 //   tell: function(words) {
 //     console.log('TELL: ' + words);
