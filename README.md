@@ -8,4 +8,4 @@ Say things like...
 >
 > "Alexa, ask **the TV** is 'Bob's Burgers' on?"
 
-Uses TV listings data from the [Rovi API](http://developer.rovicorp.com/).
+TV listings relies on a [companion service](https://github.com/radiantnode/tv-listings-updater) to update a JSON file on S3 with the latest data from the [Rovi API](http://developer.rovicorp.com).
