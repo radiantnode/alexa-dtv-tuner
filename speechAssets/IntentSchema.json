@@ -55,7 +55,10 @@
       "intent": "NoIntent"
     },
     {
-      "intent": "MoreInfoIntent"
+      "intent": "ShowDescriptionIntent"
+    },
+    {
+      "intent": "OtherShowingsIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"

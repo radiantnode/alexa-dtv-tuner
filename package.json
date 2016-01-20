@@ -24,6 +24,7 @@
   "homepage": "https://github.com/radiantnode/alexa-dtv-tuner#readme",
   "dependencies": {
     "moment": "^2.11.1",
+    "mysql": "^2.10.2",
     "request-promise": "^2.0.0"
   }
 }

@@ -148,14 +148,18 @@ AlexaDTVTunerSkill.prototype.intentHandlers = {
 
         if(show.airing.now) {
           speech += ' is on! It started ' + show.airing.human + ' on ' + show.channel.Name + '. ';
+          speech += 'Want me to turn it on? ';
         } else {
           speech += ' starts ' + show.airing.human + ' on ' + show.channel.Name + '. ';
+          speech += 'Want me to turn on ' + show.channel.Name + '? ';
         }
 
-        speech += 'Would you like me to turn it on? ';
-
-        if(show.description) {
-          speech += 'You can also ask for more info.';
+        if(show.otherAirings && show.description) {
+          speech += 'You can also ask for other showings or a description.';
+        } else if(show.otherAirings) {
+          speech += 'You can also ask for other showings.';
+        } else if (show.description) {
+          speech += 'You can also ask for a description.';
         }
 
         session.attributes.awaitingAction = ['TUNE_TO_SHOW', show];
@@ -163,7 +167,8 @@ AlexaDTVTunerSkill.prototype.intentHandlers = {
       })
       .catch(function(error){
         if(error == listings.errorTypes.SHOW_NOT_FOUND || error == listings.errorTypes.CHANNEL_NOT_FOUND) {
-          response.tell("It looks like \"" + showName + "\" isn't on right now.")
+          console.log(error)
+          response.tell("\"" + showName + "\" isn't on right now.")
         } else {
           console.log('ERROR: ' + error);
         }
@@ -173,9 +178,9 @@ AlexaDTVTunerSkill.prototype.intentHandlers = {
   },
 
   /**
-   * Responds to the user saying 'more info'
+   * Responds to the user saying 'description'
    */
-  MoreInfoIntent: function (intent, session, response)
+  ShowDescriptionIntent: function (intent, session, response)
   {
     if(session.attributes.awaitingAction)
     {
@@ -187,11 +192,44 @@ AlexaDTVTunerSkill.prototype.intentHandlers = {
         var repromptText = 'Would you like me to turn on ' + data.channel.Name + '?';
 
         response.ask({
-            speech: '<speak>' +
-              data.description +
-              '<break time="0.5s"/>' +
-              repromptText +
-              '</speak>',
+          speech: '<speak>' +
+            data.description +
+            '<break time="0.5s"/>' +
+            repromptText +
+            '</speak>',
+            type: AlexaSkill.speechOutputType.SSML
+          },
+          repromptText + ' You can say yes or no.'
+        );
+      }
+
+    } else {
+      response.tell('Not sure what to do here. Bye.');
+    }
+
+  },
+
+  /**
+   * Responds to the user saying 'other showings'
+   */
+  OtherShowingsIntent: function (intent, session, response)
+  {
+    if(session.attributes.awaitingAction)
+    {
+      var awaiting = session.attributes.awaitingAction,
+          action = awaiting[0],
+          data = awaiting[1];
+
+      if(action == 'TUNE_TO_SHOW') {
+        var repromptText = 'Would you like me to turn on ' + data.channel.Name + '?';
+
+        response.ask({
+          speech: '<speak>' +
+            '"' + data.title + '" is on again at ' +
+            data.otherAirings.join(' and ') +
+            '<break time="0.5s"/>' +
+            repromptText +
+            '</speak>',
             type: AlexaSkill.speechOutputType.SSML
           },
           repromptText + ' You can say yes or no.'
@@ -230,7 +268,7 @@ AlexaDTVTunerSkill.prototype.intentHandlers = {
    */
   NoIntent: function (intent, session, response)
   {
-    response.tell("OK. I won't.");
+    response.tell('');
   },
 
   /**
@@ -316,16 +354,16 @@ function tuneToChannelNumber (response, channelNumber)
 //   }
 // });
 
-// AlexaDTVTunerSkill.prototype.intentHandlers.FindShowIntent({
-//   slots: { ShowName: { value: "how its made" } }
-// }, { attributes: {} }, {
-//   tell: function(words) {
-//     console.log('TELL: ' + words);
-//   },
-//   ask: function(words) {
-//     console.log('ASK: ' + words);
-//   }
-// });
+AlexaDTVTunerSkill.prototype.intentHandlers.FindShowIntent({
+  slots: { ShowName: { value: "Family Feud" } }
+}, { attributes: {} }, {
+  tell: function(words) {
+    console.log('TELL: ' + words);
+  },
+  ask: function(words) {
+    console.log('ASK: ' + words);
+  }
+});
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {

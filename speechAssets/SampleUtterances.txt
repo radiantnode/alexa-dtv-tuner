@@ -42,5 +42,13 @@ YesIntent alright
 NoIntent no
 NoIntent cancel
 
-MoreInfoIntent more info
-MoreInfoIntent tell me more
+ShowDescriptionIntent more info
+ShowDescriptionIntent tell me more
+ShowDescriptionIntent description
+ShowDescriptionIntent tell me a description
+ShowDescriptionIntent give me a description
+
+OtherShowingsIntent other showings
+OtherShowingsIntent other times
+OtherShowingsIntent showings
+OtherShowingsIntent times
