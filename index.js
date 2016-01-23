@@ -167,7 +167,7 @@ AlexaDTVTunerSkill.prototype.intentHandlers = {
       })
       .catch(function(error){
         if(error == listings.errorTypes.SHOW_NOT_FOUND || error == listings.errorTypes.CHANNEL_NOT_FOUND) {
-          console.log(error)
+          // console.log(error)
           response.tell("\"" + showName + "\" isn't on right now.")
         } else {
           console.log('ERROR: ' + error);
@@ -354,16 +354,16 @@ function tuneToChannelNumber (response, channelNumber)
 //   }
 // });
 
-AlexaDTVTunerSkill.prototype.intentHandlers.FindShowIntent({
-  slots: { ShowName: { value: "Family Feud" } }
-}, { attributes: {} }, {
-  tell: function(words) {
-    console.log('TELL: ' + words);
-  },
-  ask: function(words) {
-    console.log('ASK: ' + words);
-  }
-});
+// AlexaDTVTunerSkill.prototype.intentHandlers.FindShowIntent({
+//   slots: { ShowName: { value: "Ridiculousness" } }
+// }, { attributes: {} }, {
+//   tell: function(words) {
+//     console.log('TELL: ' + words);
+//   },
+//   ask: function(words) {
+//     console.log('ASK: ' + words);
+//   }
+// });
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
