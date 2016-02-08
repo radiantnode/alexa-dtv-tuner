@@ -39,5 +39,5 @@ else
       });
   });
 
-  express_app.listen(3000);
+  express_app.listen(process.env.PORT || 3000);
 }
