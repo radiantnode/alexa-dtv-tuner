@@ -101,7 +101,7 @@ module.exports = function (app, config)
   function channelFoundSpeech (show)
   {
     var channelName = show.channel.Name,
-        channelName = show.airing.human,
+        humanTime = show.airing.human,
         speech = '"' + show.title + '"';
 
     if(show.airing.now) {
