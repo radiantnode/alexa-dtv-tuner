@@ -19,7 +19,7 @@ module.exports = function (app, config)
 
         response.session('awaitingAction', ['TUNE_TO_SHOW', show]);
 
-        response.shouldEndSession = false;
+        response.shouldEndSession(false);
         response
           .say(promptSpeech, 'You can say yes or no.')
           .send();

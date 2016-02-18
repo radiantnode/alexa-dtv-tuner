@@ -5,14 +5,14 @@
 
 'use strict';
 
-var fs = require('fs');
-var express = require('express');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var config = require('./config/config');
-var express_app = express();
-var alexa = require('alexa-app');
-var app = new alexa.app('alexa-dtv-tuner');
+var fs          = require('fs'),
+    express     = require('express'),
+    morgan      = require('morgan'),
+    bodyParser  = require('body-parser'),
+    config      = require('./config/config'),
+    express_app = express(),
+    alexa       = require('alexa-app'),
+    app         = new alexa.app('alexa-dtv-tuner');
 
 // Auto-load intents
 var intents = fs.readdirSync('./intents');
