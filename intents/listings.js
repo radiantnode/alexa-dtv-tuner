@@ -1,6 +1,6 @@
 module.exports = function (app, config)
 {
-  var listings = require('../lib/listings')(config.listings);
+  var listings = require('../lib/listings');
 
   app.intent('FindProgram', {
     slots: {
